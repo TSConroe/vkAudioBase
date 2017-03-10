@@ -29,9 +29,12 @@ namespace VkAudioBase
             Brouser.Navigate().GoToUrl("https://vk.com/audio");
             
             IJavaScriptExecutor jse = Brouser as  IJavaScriptExecutor;
-                 jse.ExecuteScript("window.scrollBy(1000,2500000)");
-            Thread.Sleep(10000);
-            if () #stl_side
+            //for (int i = 10; i > 0; i--)
+            {
+                jse.ExecuteScript("window.scrollBy(1000,2500000)");
+                Thread.Sleep(2000);
+            }
+           // string stl_side = Brouser.FindElement(By.CssSelector("stl_side")).ToString();
             jse.ExecuteScript("window.scrollBy(1000,2500000)");
             List<IWebElement> VkAudioArtist = Brouser.FindElements(By.ClassName("audio_performer")).ToList();
             List<IWebElement> VkAudioTrack = Brouser.FindElements(By.ClassName("audio_title")).ToList();
@@ -44,6 +47,7 @@ namespace VkAudioBase
             {
                 textBox1.AppendText( i + ": "+  VkAudioArtist[i].Text + "-" +  VkAudioTrack[i].Text + " " +VkAudioTrackDuration[i].Text + "\r\n");
             }
+          //  textBox1.AppendText(stl_side);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
