@@ -40,9 +40,7 @@ namespace VkAudioBase
             List<IWebElement> VkAudioTrack = Brouser.FindElements(By.ClassName("audio_title")).ToList();
             List<IWebElement> VkAudioTrackDuration = Brouser.FindElements(By.ClassName("audio_duration")).ToList();
 
-
-
-
+            
             for (int i = 0; i < VkAudioArtist.Count; i++)
             {
                 textBox1.AppendText( i + ": "+  VkAudioArtist[i].Text + "-" +  VkAudioTrack[i].Text + " " +VkAudioTrackDuration[i].Text + "\r\n");
